@@ -1,0 +1,67 @@
+<!-- 三个球运动页面，体验普通回调和promise回调的区别。 -->
+<!-- 普通回调函数版 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>three balls</title>
+	<style>
+		.ball{
+			width:40px;
+			height:40px;
+			border-radius: 20px;
+		}
+		.ball1{
+			background: red;
+		}
+		.ball2{
+			background: green;
+		}
+		.ball3{
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+<div class="ball ball1" style="margin-left: 0"></div>  
+<div class="ball ball2" style="margin-left: 0"></div>
+<div class="ball ball3" style="margin-left: 0"></div>
+<script>
+	var ball1 = document.querySelector('.ball1')
+	var ball2 = document.querySelector('.ball2')
+	var ball3 = document.querySelector('.ball3')
+
+	function moveball(ball,distance,cb) {
+		setTimeout(function() {
+			var marginLeft = parseInt(ball.style.marginLeft,10)   //需写内联style才能获取到0.
+			console.log(marginLeft+'---'+distance)
+			if(marginLeft === distance){
+				cb && cb() //此处判断cb是否传入，传入则执行cb()。&&运算符的短路原则，避免当cb为空时执行了cb()方法而报错。
+				return   //此处需加return，否则会出现第二第三个球快速移动，而且无后续返回。
+			}else{
+				if(marginLeft < distance){
+					marginLeft++
+				}else{
+					marginLeft--
+				}
+			}
+			ball.style.marginLeft = marginLeft + 'px'    //此处需加px
+			moveball(ball,distance,cb)
+		},13)
+	}
+
+	moveball(ball1,100,function () {
+		moveball(ball2,200,function () {
+			moveball(ball3,300,function () {
+				moveball(ball3,150,function () {
+					moveball(ball2,150,function () {
+						moveball(ball1,150,function () {
+						})
+					})
+				})
+			})
+		})
+	})
+</script>
+</body>
+</html>
