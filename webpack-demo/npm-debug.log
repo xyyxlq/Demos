@@ -1,0 +1,42 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'link',
+1 verbose cli   'webpack',
+1 verbose cli   '--save-dev' ]
+2 info using npm@3.10.3
+3 info using node@v6.3.1
+4 verbose link symlinking /usr/local/lib/node_modules/webpack to /Users/mac/Desktop/lqcodes/github/Demos/webpack-demo/node_modules/webpack
+5 silly gentlyRm /Users/mac/Desktop/lqcodes/github/Demos/webpack-demo/node_modules/webpack is being purged
+6 verbose gentlyRm don't care about contents; nuking /Users/mac/Desktop/lqcodes/github/Demos/webpack-demo/node_modules/webpack
+7 info build /Users/mac/Desktop/lqcodes/github/Demos/webpack-demo/node_modules/webpack
+8 info linkStuff webpack@3.5.6
+9 silly linkStuff webpack@3.5.6 has /Users/mac/Desktop/lqcodes/github/Demos/webpack-demo/node_modules as its parent node_modules
+10 verbose linkBins webpack@3.5.6
+11 verbose link bins [ { webpack: './bin/webpack.js' },
+11 verbose link bins   '/Users/mac/Desktop/lqcodes/github/Demos/webpack-demo/node_modules/.bin',
+11 verbose link bins   false ]
+12 verbose linkMans webpack@3.5.6
+13 silly gentlyRm /Users/mac/Desktop/lqcodes/github/Demos/webpack-demo/node_modules/.bin/webpack is being purged
+14 verbose gentlyRm don't care about contents; nuking /Users/mac/Desktop/lqcodes/github/Demos/webpack-demo/node_modules/.bin/webpack
+15 verbose stack Error: EPERM: operation not permitted, chmod '/Users/mac/Desktop/lqcodes/github/Demos/webpack-demo/node_modules/webpack/bin/webpack.js'
+15 verbose stack     at Error (native)
+16 verbose cwd /Users/mac/Desktop/lqcodes/github/Demos/webpack-demo
+17 error Darwin 16.6.0
+18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "link" "webpack" "--save-dev"
+19 error node v6.3.1
+20 error npm  v3.10.3
+21 error path /Users/mac/Desktop/lqcodes/github/Demos/webpack-demo/node_modules/webpack/bin/webpack.js
+22 error code EPERM
+23 error errno -1
+24 error syscall chmod
+25 error Error: EPERM: operation not permitted, chmod '/Users/mac/Desktop/lqcodes/github/Demos/webpack-demo/node_modules/webpack/bin/webpack.js'
+25 error     at Error (native)
+25 error  { Error: EPERM: operation not permitted, chmod '/Users/mac/Desktop/lqcodes/github/Demos/webpack-demo/node_modules/webpack/bin/webpack.js'
+25 error     at Error (native)
+25 error   errno: -1,
+25 error   code: 'EPERM',
+25 error   syscall: 'chmod',
+25 error   path: '/Users/mac/Desktop/lqcodes/github/Demos/webpack-demo/node_modules/webpack/bin/webpack.js' }
+26 error Please try running this command again as root/Administrator.
+27 verbose exit [ -1, true ]

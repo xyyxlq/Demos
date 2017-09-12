@@ -1,0 +1,39 @@
+<!-- echo test -->
+<!-- websocket基础demo：发送字符串给第三方服务端，返回输入的字符串并显示在页面上 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Websocket</title>
+</head>
+<body>
+<h1>Echo Test</h1>
+<input type="text" id="sentText">
+	<button id="sentButton">发送</button>
+	<div id="recv"></div>
+	<script type="text/javascript">
+		//实例化websocket
+		var websocket = new WebSocket("ws://echo.websocket.org/")
+		// websocket打开事件
+		websocket.onopen = function () {
+			console.log('websocket open!')
+			document.getElementById('recv').innerHTML = 'Connected!'
+		}
+		// websocket关闭事件
+		websocket.onclose = function () {
+			console.log('websocket close!')
+		}
+		// websocket接收消息事件,参数为消息
+		websocket.onmessage = function (e) {
+			console.log(e.data)
+			document.getElementById('recv').innerHTML = e.data
+		}
+
+		document.getElementById('sentButton').onclick = function () {
+			var txt = document.getElementById('sentText').value
+			// websocket 发送消息（string）
+			websocket.send(txt)
+		}
+	</script>
+</body>
+</html>
